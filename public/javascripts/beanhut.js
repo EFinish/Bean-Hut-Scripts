@@ -58,11 +58,11 @@ function update(){
 
     if(bean.position.x > 512 - 50 || bean.position.x < 0){
         beanXFactor *= -1;
-        beanXSpeed = Math.random();
+        beanXSpeed = Math.random() * 5;
     }
     if(bean.position.y > 384 - 57 || bean.position.y < 0){
         beanYFactor *= -1;
-        beanYSpeed = Math.random();
+        beanYSpeed = Math.random() * 5;
     }
 
     bean.rotation += Math.random();
