@@ -48,7 +48,13 @@ var beanTexture = PIXI.Texture.fromImage("https://beanhuthost.herokuapp.com/imag
 bean = new PIXI.Sprite(beanTexture);
 bean.position.x = 0;
 bean.position.y = 0;
+
+bean2 = new PIXI.Sprite(beanTexture);
+bean2.position.x = 30;
+bean2.position.y = 30;
+
 stage.addChild(bean);
+stage.addChild(bean2);
 
 var beanXFactor = 1;
 var beanYFactor = 1;
@@ -69,6 +75,20 @@ function update(){
     }
 
     bean.rotation += Math.random();
+
+    bean2.position.x += beanXSpeed * beanXFactor;
+    bean2.position.y += beanYSpeed * beanYFactor;
+
+    if(bean2.position.x > 512 - 50 || bean2.position.x < 0){
+        beanXFactor *= -1;
+        beanXSpeed = Math.random() * 5;
+    }
+    if(bean2.position.y > 384 - 57 || bean2.position.y < 0){
+        beanYFactor *= -1;
+        beanYSpeed = Math.random() * 5;
+    }
+
+    bean2.rotation += Math.random();
 
     renderer.render(stage);
     requestAnimationFrame(update);
