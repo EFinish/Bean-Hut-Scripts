@@ -1,3 +1,8 @@
 body{
   background-image: url("http://beanhuthost.herokuapp.com/images/1506193551234.jpg");
+  font-family: monospace;
+}
+.navbar-nav{
+  float: right;
+
 }
