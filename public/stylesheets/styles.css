@@ -9,6 +9,10 @@ body{
   width: 100%;
 }
 
+.center-can{
+  vertical-align: baseline !important;
+}
+
 #mainpage{
   padding-top: 0px !important;
 }

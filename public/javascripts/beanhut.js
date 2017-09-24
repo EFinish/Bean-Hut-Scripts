@@ -35,7 +35,6 @@ document.getElementById("wrap").insertBefore(beanCanvas, document.getElementById
 var cottonCandyBeans = document.createElement("img");
 cottonCandyBeans.src = "https://beanhuthost.herokuapp.com/images/cotton-candy-beans.png";
 cottonCandyBeans.height = 384;
-cottonCandyBeans.verticalAlign = "none !important";
 document.getElementById("wrap").insertBefore(cottonCandyBeans, document.getElementById("mainpage"));
 
 stage = new PIXI.Container();
