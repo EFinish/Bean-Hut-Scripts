@@ -5,7 +5,7 @@ body{
 }
 
 .navbar-header{
-  
+  background-image: url("https://beanhuthost.herokuapp.com/images/paul.jpeg");
 }
 
 .navbar-nav{
