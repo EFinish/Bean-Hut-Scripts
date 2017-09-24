@@ -3,7 +3,12 @@ body{
   font-family: monospace;
 
 }
+
 .navbar-nav{
   float: right;
 
+}
+
+#messagebuffer {
+  background: black;
 }
