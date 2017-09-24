@@ -32,8 +32,11 @@ beanCanvas.width = 512;
 beanCanvas.height = 384;
 document.getElementById("wrap").insertBefore(beanCanvas, document.getElementById("mainpage"));
 
-
-
+var cottonCandyBeans = document.createElement("img");
+cottonCandyBeans.src = "https://beanhuthost.herokuapp.com/images/cotton-candy-beans.png";
+// beanCanvas.width = 512;
+beanCanvas.height = 384;
+document.getElementById("wrap").insertBefore(cottonCandyBeans, document.getElementById("mainpage"));
 
 stage = new PIXI.Container();
 renderer = PIXI.autoDetectRenderer(
