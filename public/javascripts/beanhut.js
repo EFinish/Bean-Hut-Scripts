@@ -51,6 +51,7 @@ var beanTexture = PIXI.Texture.fromImage("https://beanhuthost.herokuapp.com/imag
 
 var numBeans = 10;
 
+var bean = Array();
 for(i = 0; i < numBeans; i++) {
 bean[i] = new PIXI.Sprite(beanTexture);
     bean[i].position.x = Math.floor((Math.random() * beanCanvas.width) + 0);;
