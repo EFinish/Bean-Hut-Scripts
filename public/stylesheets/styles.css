@@ -8,6 +8,11 @@ body{
   background-image: url("https://beanhuthost.herokuapp.com/images/paul.jpeg");
 }
 
+.navbar-brand{
+  color: hotpink;
+  font-size: 60px;
+}
+
 .navbar-nav{
   float: right;
 }
