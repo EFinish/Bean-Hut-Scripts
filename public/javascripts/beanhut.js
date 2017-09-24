@@ -59,8 +59,11 @@ function update(){
     if(bean.position.y > 384 - 57 || bean.position.y < 0)
         beanYFactor *= -1;
 
+    bean.rotation += Math.random();
+
     renderer.render(stage);
     requestAnimationFrame(update);
 }
+
 
 requestAnimationFrame(update);
