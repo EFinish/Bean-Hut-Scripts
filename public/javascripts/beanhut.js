@@ -60,6 +60,7 @@ function update(){
         beanYFactor *= -1;
 
     renderer.render(stage);
+    requestAnimationFrame(update);
 }
 
 requestAnimationFrame(update);
