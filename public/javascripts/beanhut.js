@@ -39,57 +39,46 @@ cottonCandyBeans.className = "center-can";
 document.getElementById("wrap").insertBefore(cottonCandyBeans, document.getElementById("mainpage"));
 
 stage = new PIXI.Container();
+
+
+
 renderer = PIXI.autoDetectRenderer(
     512,
     384,
     {view:document.getElementById("bean-canvas")}
 );
 var beanTexture = PIXI.Texture.fromImage("https://beanhuthost.herokuapp.com/images/bean.png");
+
+var numBeans = 10;
+
+for(i = 0; i < numBeans; i++) {
 bean = new PIXI.Sprite(beanTexture);
-bean.position.x = 0;
-bean.position.y = 0;
+    bean[i].position.x = Math.floor((Math.random() * beanCanvas.width) + 0);;
+    bean[i].position.y = Math.floor((Math.random() * beanCanvas.height) + 0);;
 
-bean2 = new PIXI.Sprite(beanTexture);
-bean2.position.x = 30;
-bean2.position.y = 30;
-
-stage.addChild(bean);
-stage.addChild(bean2);
-
+    stage.addChild(bean[i]);
+}
 var beanXFactor = 1;
 var beanYFactor = 1;
 var beanXSpeed = 1;
 var beanYSpeed = 1;
 
 function update(){
-    bean.position.x += beanXSpeed * beanXFactor;
-    bean.position.y += beanYSpeed * beanYFactor;
+    for(i = 0; i < numBeans; i++) {
+        bean[i].position.x += beanXSpeed * beanXFactor;
+        bean[i].position.y += beanYSpeed * beanYFactor;
 
-    if(bean.position.x > 512 - 50 || bean.position.x < 0){
-        beanXFactor *= -1;
-        beanXSpeed = Math.random() * 5;
+        if(bean[i].position.x > beanCanvas.height - 50 || bean[i].position.x < 0){
+            beanXFactor *= -1;
+            beanXSpeed = Math.random() * 5;
+        }
+        if(bean[i].position.y > beanCanvas.width - 57 || bean[i].position.y < 0){
+            beanYFactor *= -1;
+            beanYSpeed = Math.random() * 5;
+        }
+
+        bean[i].rotation += Math.random();
     }
-    if(bean.position.y > 384 - 57 || bean.position.y < 0){
-        beanYFactor *= -1;
-        beanYSpeed = Math.random() * 5;
-    }
-
-    bean.rotation += Math.random();
-
-    bean2.position.x += beanXSpeed * beanXFactor;
-    bean2.position.y += beanYSpeed * beanYFactor;
-
-    if(bean2.position.x > 512 - 50 || bean2.position.x < 0){
-        beanXFactor *= -1;
-        beanXSpeed = Math.random() * 5;
-    }
-    if(bean2.position.y > 384 - 57 || bean2.position.y < 0){
-        beanYFactor *= -1;
-        beanYSpeed = Math.random() * 5;
-    }
-
-    bean2.rotation += Math.random();
-
     renderer.render(stage);
     requestAnimationFrame(update);
 }
