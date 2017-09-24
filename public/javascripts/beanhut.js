@@ -38,6 +38,12 @@ cottonCandyBeans.height = 384;
 cottonCandyBeans.verticalAlign = "baseline !important";
 document.getElementById("wrap").insertBefore(cottonCandyBeans, document.getElementById("mainpage"));
 
+var beanCanvas2 = document.createElement("canvas");
+beanCanvas2.id = "bean-canvas";
+beanCanvas2.width = 512;
+beanCanvas2.height = 384;
+document.getElementById("wrap").insertBefore(beanCanvas2, document.getElementById("mainpage"));
+
 stage = new PIXI.Container();
 renderer = PIXI.autoDetectRenderer(
     512,
