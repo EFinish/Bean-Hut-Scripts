@@ -1,6 +1,10 @@
 body{
+<<<<<<< HEAD
   background-image: url("http://beanhuthost.herokuapp.com/images/1506193551234.jpg");
   font-family: monospace;
+=======
+  background-image: url("http://beanhuthost.herokuapp.com/images/benis-background.jpg");
+>>>>>>> 6cdd6abc5a5ac71f1dcf5b4fa58117c68e77a362
 }
 .navbar-nav{
   float: right;
