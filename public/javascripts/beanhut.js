@@ -55,9 +55,9 @@ function update(){
     bean.position.y += 0.64 * beanYFactor;
 
     if(bean.position.x > 512 - 50 || bean.position.x < 0)
-        beanXFactor *= -1 * Math.random();
+        beanXFactor *= -1 * (Math.random() * 5);
     if(bean.position.y > 384 - 57 || bean.position.y < 0)
-        beanYFactor *= -1 * Math.random();
+        beanYFactor *= -1 * (Math.random() * 5);
 
     bean.rotation += Math.random();
 
