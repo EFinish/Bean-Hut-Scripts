@@ -49,7 +49,7 @@ renderer = PIXI.autoDetectRenderer(
 );
 var beanTexture = PIXI.Texture.fromImage("https://beanhuthost.herokuapp.com/images/bean.png");
 
-var numBeans = 10;
+var numBeans = 20;
 
 var bean = Array();
 for(i = 0; i < numBeans; i++) {
