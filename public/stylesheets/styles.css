@@ -1,3 +1,7 @@
 body{
   background-image: url("http://beanhuthost.herokuapp.com/images/benis-background.jpg");
 }
+
+#messagebuffer {
+  background: black;
+}
