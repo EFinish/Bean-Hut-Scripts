@@ -1,7 +1,9 @@
 body{
-  background-image: url("http://beanhuthost.herokuapp.com/images/benis-background.jpg");
-}
+  background-image: url("http://beanhuthost.herokuapp.com/images/1506193551234.jpg");
+  font-family: monospace;
 
-#messagebuffer {
-  background: black;
+}
+.navbar-nav{
+  float: right;
+
 }
