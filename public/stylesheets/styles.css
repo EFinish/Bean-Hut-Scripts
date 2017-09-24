@@ -15,7 +15,7 @@ body{
 }
 
 .navbar-brand{
-  color: hotpink;
+  color: hotpink !important;
   font-size: 60px;
 }
 
