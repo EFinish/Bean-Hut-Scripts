@@ -4,6 +4,12 @@ body{
 
 }
 
+#img{
+  vertical-align: middle;
+  height: 250px;
+  width: 100%;
+}
+
 .navbar-header{
   background-image: url("https://beanhuthost.herokuapp.com/images/paul.jpeg");
 }
