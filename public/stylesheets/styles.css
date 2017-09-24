@@ -4,8 +4,7 @@ body{
 
 }
 
-#img{
-  vertical-align: middle;
+.head-banner{
   height: 250px;
   width: 100%;
 }
