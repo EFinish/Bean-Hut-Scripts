@@ -49,15 +49,21 @@ stage.addChild(bean);
 
 var beanXFactor = 1;
 var beanYFactor = 1;
+var beanXSpeed = 1;
+var beanYSpeed = 1;
 
 function update(){
-    bean.position.x += 0.64 * beanXFactor;
-    bean.position.y += 0.64 * beanYFactor;
+    bean.position.x += beanXSpeed * beanXFactor;
+    bean.position.y += beanYSpeed * beanYFactor;
 
-    if(bean.position.x > 512 - 50 || bean.position.x < 0)
-        beanXFactor *= -1 * (Math.random() * 5);
-    if(bean.position.y > 384 - 57 || bean.position.y < 0)
-        beanYFactor *= -1 * (Math.random() * 5);
+    if(bean.position.x > 512 - 50 || bean.position.x < 0){
+        beanXFactor *= -1;
+        beanXSpeed = Math.random();
+    }
+    if(bean.position.y > 384 - 57 || bean.position.y < 0){
+        beanYFactor *= -1;
+        beanYSpeed = Math.random();
+    }
 
     bean.rotation += Math.random();
 
