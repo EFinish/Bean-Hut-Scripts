@@ -23,6 +23,7 @@
 
 var newImg = document.createElement("img");
 newImg.src = "https://beanhuthost.herokuapp.com/images/benis-background.jpg";
+newImg.className = "head-banner";
 document.getElementById("wrap").insertBefore(newImg, document.getElementById("mainpage"));
 
 var beanCanvas = document.createElement("canvas");
