@@ -51,12 +51,12 @@ var beanXFactor = 1;
 var beanYFactor = 1;
 
 function update(){
-    bean.position.x += 0.128 * beanXFactor;
+    bean.position.x += 0.64 * beanXFactor;
     bean.position.y += 0.64 * beanYFactor;
 
-    if(bean.position.x > 512 || bean.position.x < 0)
+    if(bean.position.x > 512 - 50 || bean.position.x < 0)
         beanXFactor *= -1;
-    if(bean.position.y > 384 || bean.position.y < 0)
+    if(bean.position.y > 384 - 57 || bean.position.y < 0)
         beanYFactor *= -1;
 
     renderer.render(stage);
