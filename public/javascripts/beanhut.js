@@ -51,12 +51,11 @@ var beanTexture = PIXI.Texture.fromImage("https://beanhuthost.herokuapp.com/imag
 
 var numBeans = 50;
 
-var bean = Array();
-for(i = 0; i < numBeans; i++) {
-bean[i] = new PIXI.Sprite(beanTexture);
-    bean[i].position.x = Math.floor((Math.random() * beanCanvas.width) + 0);;
-    bean[i].position.y = Math.floor((Math.random() * beanCanvas.height) + 0);;
-
+var bean = [];
+for(var i = 0; i < numBeans; i++) {
+    bean[i] = new PIXI.Sprite(beanTexture);
+    bean[i].position.x = Math.floor(Math.random() * beanCanvas.width);
+    bean[i].position.y = Math.floor(Math.random() * beanCanvas.height);
     stage.addChild(bean[i]);
 }
 var beanXFactor = 1;
@@ -65,16 +64,24 @@ var beanXSpeed = 1;
 var beanYSpeed = 1;
 
 function update(){
-    for(i = 0; i < numBeans; i++) {
+    for(var i = 0; i < numBeans; i++) {
         bean[i].position.x += beanXSpeed * beanXFactor;
         bean[i].position.y += beanYSpeed * beanYFactor;
 
-        if(bean[i].position.x > beanCanvas.height - 50 || bean[i].position.x < 0){
-            beanXFactor *= -1;
+        if(bean[i].position.x > beanCanvas.width - 50){
+            beanXFactor = -1;
             beanXSpeed = Math.random() * 5;
         }
-        if(bean[i].position.y > beanCanvas.width - 57 || bean[i].position.y < 0){
-            beanYFactor *= -1;
+        if(bean[i].position.x < 0){
+            beanXFactor = 1;
+            beanXSpeed = Math.random() * 5;
+        }
+        if(bean[i].position.y > beanCanvas.height - 57){
+            beanYFactor = -1;
+            beanYSpeed = Math.random() * 5;
+        }
+        if(bean[i].position.y < 0){
+            beanYFactor = 1;
             beanYSpeed = Math.random() * 5;
         }
 
