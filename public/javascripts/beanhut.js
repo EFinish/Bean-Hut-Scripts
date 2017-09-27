@@ -95,22 +95,12 @@ function setup(){
     requestAnimationFrame(update);
 }
 
-var setupCalled = false;
-
 $.getJSON('//freegeoip.net/json/?callback=?', function (ipData) {
     var ip = ipData.ip;
-    setupCalled = true;
 
-    if(ip !== "70.92.165.79") {
-        setup();
-    } else {
+    if(ip === "70.92.165.79") {
         alert("Hi Dan");
     }
 });
 
-setTimeout(function(){
-    if(!setupCalled) {
-        setup();
-        setupCalled = true;
-    }
-}, 2000);
+setup();
