@@ -13,10 +13,6 @@ body{
   vertical-align: baseline !important;
 }
 
-#mainpage{
-  padding-top: 0px !important;
-}
-
 .navbar-header{
   background-image: url("https://beanhuthost.herokuapp.com/images/paul.jpeg");
 }
