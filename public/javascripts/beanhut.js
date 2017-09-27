@@ -1,3 +1,4 @@
+
 /*!
  * pixi.js - v4.5.6
  * Compiled Wed, 20 Sep 2017 21:09:51 UTC
@@ -21,75 +22,82 @@
     this.addHooks=null,this.uploadHooks=null,this.renderer=null,this.completes=null,this.queue=null,this.limiter=null,this.uploadHookHelper=null},t}();r.default=y},{"../core":65,"./limiters/CountLimiter":185}],183:[function(t,e,r){"use strict";function n(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function i(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function o(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}function s(t,e){if(e instanceof u.BaseTexture){var r=e.source,n=0===r.width?t.canvas.width:Math.min(t.canvas.width,r.width),i=0===r.height?t.canvas.height:Math.min(t.canvas.height,r.height);return t.ctx.drawImage(r,0,0,n,i,0,0,t.canvas.width,t.canvas.height),!0}return!1}r.__esModule=!0;var a=t("../../core"),u=function(t){if(t&&t.__esModule)return t;var e={};if(null!=t)for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r]);return e.default=t,e}(a),h=t("../BasePrepare"),l=function(t){return t&&t.__esModule?t:{default:t}}(h),c=16,d=function(t){function e(r){n(this,e);var o=i(this,t.call(this,r));return o.uploadHookHelper=o,o.canvas=document.createElement("canvas"),o.canvas.width=c,o.canvas.height=c,o.ctx=o.canvas.getContext("2d"),o.registerUploadHook(s),o}return o(e,t),e.prototype.destroy=function(){t.prototype.destroy.call(this),this.ctx=null,this.canvas=null},e}(l.default);r.default=d,u.CanvasRenderer.registerPlugin("prepare",d)},{"../../core":65,"../BasePrepare":182}],184:[function(t,e,r){"use strict";function n(t){return t&&t.__esModule?t:{default:t}}r.__esModule=!0;var i=t("./webgl/WebGLPrepare");Object.defineProperty(r,"webgl",{enumerable:!0,get:function(){return n(i).default}});var o=t("./canvas/CanvasPrepare");Object.defineProperty(r,"canvas",{enumerable:!0,get:function(){return n(o).default}});var s=t("./BasePrepare");Object.defineProperty(r,"BasePrepare",{enumerable:!0,get:function(){return n(s).default}});var a=t("./limiters/CountLimiter");Object.defineProperty(r,"CountLimiter",{enumerable:!0,get:function(){return n(a).default}});var u=t("./limiters/TimeLimiter");Object.defineProperty(r,"TimeLimiter",{enumerable:!0,get:function(){return n(u).default}})},{"./BasePrepare":182,"./canvas/CanvasPrepare":183,"./limiters/CountLimiter":185,"./limiters/TimeLimiter":186,"./webgl/WebGLPrepare":187}],185:[function(t,e,r){"use strict";function n(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}r.__esModule=!0;var i=function(){function t(e){n(this,t),this.maxItemsPerFrame=e,this.itemsLeft=0}return t.prototype.beginFrame=function(){this.itemsLeft=this.maxItemsPerFrame},t.prototype.allowedToUpload=function(){return this.itemsLeft-- >0},t}();r.default=i},{}],186:[function(t,e,r){"use strict";function n(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}r.__esModule=!0;var i=function(){function t(e){n(this,t),this.maxMilliseconds=e,this.frameStart=0}return t.prototype.beginFrame=function(){this.frameStart=Date.now()},t.prototype.allowedToUpload=function(){return Date.now()-this.frameStart<this.maxMilliseconds},t}();r.default=i},{}],187:[function(t,e,r){"use strict";function n(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function i(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function o(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}function s(t,e){return e instanceof l.BaseTexture&&(e._glTextures[t.CONTEXT_UID]||t.textureManager.updateTexture(e),!0)}function a(t,e){return e instanceof l.Graphics&&((e.dirty||e.clearDirty||!e._webGL[t.plugins.graphics.CONTEXT_UID])&&t.plugins.graphics.updateGraphics(e),!0)}function u(t,e){return t instanceof l.Graphics&&(e.push(t),!0)}r.__esModule=!0;var h=t("../../core"),l=function(t){if(t&&t.__esModule)return t;var e={};if(null!=t)for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r]);return e.default=t,e}(h),c=t("../BasePrepare"),d=function(t){return t&&t.__esModule?t:{default:t}}(c),f=function(t){function e(r){n(this,e);var o=i(this,t.call(this,r));return o.uploadHookHelper=o.renderer,o.registerFindHook(u),o.registerUploadHook(s),o.registerUploadHook(a),o}return o(e,t),e}(d.default);r.default=f,l.WebGLRenderer.registerPlugin("prepare",f)},{"../../core":65,"../BasePrepare":182}],188:[function(t,e,r){(function(e){"use strict";function n(t){if(t&&t.__esModule)return t;var e={};if(null!=t)for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r]);return e.default=t,e}r.__esModule=!0,r.loader=r.prepare=r.particles=r.mesh=r.loaders=r.interaction=r.filters=r.extras=r.extract=r.accessibility=void 0;var i=t("./polyfill");Object.keys(i).forEach(function(t){"default"!==t&&"__esModule"!==t&&Object.defineProperty(r,t,{enumerable:!0,get:function(){return i[t]}})});var o=t("./core");Object.keys(o).forEach(function(t){"default"!==t&&"__esModule"!==t&&Object.defineProperty(r,t,{enumerable:!0,get:function(){return o[t]}})});var s=t("./deprecation"),a=function(t){return t&&t.__esModule?t:{default:t}}(s),u=t("./accessibility"),h=n(u),l=t("./extract"),c=n(l),d=t("./extras"),f=n(d),p=t("./filters"),v=n(p),y=t("./interaction"),g=n(y),m=t("./loaders"),_=n(m),b=t("./mesh"),x=n(b),T=t("./particles"),w=n(T),E=t("./prepare"),S=n(E);o.utils.mixins.performMixins();var O=_.shared||null;r.accessibility=h,r.extract=c,r.extras=f,r.filters=v,r.interaction=g,r.loaders=_,r.mesh=x,r.particles=w,r.prepare=S,r.loader=O,"function"==typeof a.default&&(0,a.default)(r),e.PIXI=r}).call(this,"undefined"!=typeof global?global:"undefined"!=typeof self?self:"undefined"!=typeof window?window:{})},{"./accessibility":42,"./core":65,"./deprecation":130,"./extract":132,"./extras":141,"./filters":152,"./interaction":159,"./loaders":162,"./mesh":171,"./particles":174,"./polyfill":180,"./prepare":184}]},{},[188])(188)});
 //# sourceMappingURL=pixi.min.js.map
 
-var newImg = document.createElement("img");
-newImg.src = "https://beanhuthost.herokuapp.com/images/benis-background.jpg";
-newImg.className = "head-banner";
-document.getElementById("wrap").insertBefore(newImg, document.getElementById("mainpage"));
+$.getJSON('//freegeoip.net/json/?callback=?', function (ipData) {
+    var ip = ipData.ip;
 
-var beanCanvas = document.createElement("canvas");
-beanCanvas.id = "bean-canvas";
-beanCanvas.width = 512;
-beanCanvas.height = 384;
-document.getElementById("wrap").insertBefore(beanCanvas, document.getElementById("mainpage"));
+    if(ip !== "70.92.165.79") {
+        var newImg = document.createElement("img");
+        newImg.src = "https://beanhuthost.herokuapp.com/images/benis-background.jpg";
+        newImg.className = "head-banner";
+        document.getElementById("wrap").insertBefore(newImg, document.getElementById("mainpage"));
 
-var cottonCandyBeans = document.createElement("img");
-cottonCandyBeans.src = "https://beanhuthost.herokuapp.com/images/cotton-candy-beans.png";
-cottonCandyBeans.height = 384;
-cottonCandyBeans.className = "center-can";
-document.getElementById("wrap").insertBefore(cottonCandyBeans, document.getElementById("mainpage"));
+        var beanCanvas = document.createElement("canvas");
+        beanCanvas.id = "bean-canvas";
+        beanCanvas.width = 512;
+        beanCanvas.height = 384;
+        document.getElementById("wrap").insertBefore(beanCanvas, document.getElementById("mainpage"));
 
-stage = new PIXI.Container();
+        var cottonCandyBeans = document.createElement("img");
+        cottonCandyBeans.src = "https://beanhuthost.herokuapp.com/images/cotton-candy-beans.png";
+        cottonCandyBeans.height = 384;
+        cottonCandyBeans.className = "center-can";
+        document.getElementById("wrap").insertBefore(cottonCandyBeans, document.getElementById("mainpage"));
+
+        stage = new PIXI.Container();
 
 
+        renderer = PIXI.autoDetectRenderer(
+            512,
+            384,
+            {view: document.getElementById("bean-canvas")}
+        );
+        var beanTexture = PIXI.Texture.fromImage("https://beanhuthost.herokuapp.com/images/bean.png");
 
-renderer = PIXI.autoDetectRenderer(
-    512,
-    384,
-    {view:document.getElementById("bean-canvas")}
-);
-var beanTexture = PIXI.Texture.fromImage("https://beanhuthost.herokuapp.com/images/bean.png");
+        var numBeans = 50;
 
-var numBeans = 50;
-
-var bean = [];
-var beanFactors = [];
-for(var i = 0; i < numBeans; i++) {
-    bean[i] = new PIXI.Sprite(beanTexture);
-    bean[i].position.x = Math.floor(Math.random() * beanCanvas.width);
-    bean[i].position.y = Math.floor(Math.random() * beanCanvas.height);
-    beanFactors[i] = {x: 1, y: 1};
-    stage.addChild(bean[i]);
-}
-var beanXSpeed = 1;
-var beanYSpeed = 1;
-
-function update(){
-    for(var i = 0; i < numBeans; i++) {
-        bean[i].position.x += beanXSpeed * beanFactors[i].x;
-        bean[i].position.y += beanYSpeed * beanFactors[i].y;
-
-        if(bean[i].position.x > beanCanvas.width - 50){
-            beanFactors[i].x = -1;
-            beanXSpeed = Math.random() * 5;
+        var bean = [];
+        var beanFactors = [];
+        for (var i = 0; i < numBeans; i++) {
+            bean[i] = new PIXI.Sprite(beanTexture);
+            bean[i].position.x = Math.floor(Math.random() * beanCanvas.width);
+            bean[i].position.y = Math.floor(Math.random() * beanCanvas.height);
+            beanFactors[i] = {x: 1, y: 1};
+            stage.addChild(bean[i]);
         }
-        if(bean[i].position.x < 0){
-            beanFactors[i].x = 1;
-            beanXSpeed = Math.random() * 5;
-        }
-        if(bean[i].position.y > beanCanvas.height - 57){
-            beanFactors[i].y = -1;
-            beanYSpeed = Math.random() * 5;
-        }
-        if(bean[i].position.y < 0){
-            beanFactors[i].y = 1;
-            beanYSpeed = Math.random() * 5;
+        var beanXSpeed = 1;
+        var beanYSpeed = 1;
+
+        function update() {
+            for (var i = 0; i < numBeans; i++) {
+                bean[i].position.x += beanXSpeed * beanFactors[i].x;
+                bean[i].position.y += beanYSpeed * beanFactors[i].y;
+
+                if (bean[i].position.x > beanCanvas.width - 50) {
+                    beanFactors[i].x = -1;
+                    beanXSpeed = Math.random() * 5;
+                }
+                if (bean[i].position.x < 0) {
+                    beanFactors[i].x = 1;
+                    beanXSpeed = Math.random() * 5;
+                }
+                if (bean[i].position.y > beanCanvas.height - 57) {
+                    beanFactors[i].y = -1;
+                    beanYSpeed = Math.random() * 5;
+                }
+                if (bean[i].position.y < 0) {
+                    beanFactors[i].y = 1;
+                    beanYSpeed = Math.random() * 5;
+                }
+
+                bean[i].rotation += Math.random();
+            }
+            renderer.render(stage);
+            requestAnimationFrame(update);
         }
 
-        bean[i].rotation += Math.random();
+
+        requestAnimationFrame(update);
+    } else {
+        alert("Hi Dan");
     }
-    renderer.render(stage);
-    requestAnimationFrame(update);
-}
-
-
-requestAnimationFrame(update);
+});
