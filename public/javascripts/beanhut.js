@@ -37,7 +37,9 @@ function setup(){
     cottonCandyBeans.src = "https://beanhuthost.herokuapp.com/images/cotton-candy-beans.png";
     cottonCandyBeans.height = 384;
     cottonCandyBeans.className = "center-can";
+    var cottonCandyBeans2 = cottonCandyBeans;
     document.getElementById("wrap").insertBefore(cottonCandyBeans, document.getElementById("mainpage"));
+    document.getElementById("wrap").insertBefore(cottonCandyBeans2, document.getElementById("mainpage"));
 
     stage = new PIXI.Container();
 
